@@ -1,0 +1,79 @@
+// login
+http://3.101.35.72:8080/login
+// post
+
+{
+    "email": "sankhyan.amit@gmail.com",
+    "password":"123456"
+}
+
+{
+  "msg": "Success! Yo're logged in.",
+  "data": {
+    "id": 17,
+    "role_id": 1,
+    "name": "undefined",
+    "email": "sankhyan.amit@gmail.com",
+    "password": "$2a$08$YPqsEKwU7rkLwyG/pqHTOeyk0bM/2.xMMe3TVGWlfikL8t6qPB8qq",
+    "phone_no": "undefined",
+    "bio": null,
+    "status": "1",
+    "created_at": "Tue Dec 14 2021 14:46:32 GMT+0000 (Coordinated Universal Time)",
+    "updated_at": null
+  },
+  "code": "200"
+}
+
+-------------------
+http://3.101.35.72:8080/register
+
+
+{
+    "email": "sankhyan.amet@gmail.com",
+    "password":"123456",
+    "phone_no":"7018915635"
+}
+
+-----------------
+
+
+http://3.101.35.72:8080/activateUser
+
+user_id
+
+
+-----------------
+http://3.101.35.72:8080/getUsers
+-------------------------
+{
+"id": 1,
+"role_id": 0,
+"name": "",
+"email": "admin@imonetize.com",
+"password": "$2a$08$NvkVO2u/GZ8zi.kKsGvEKO8lZLLgAjPJpsCJa1uNg9wYPvSAK6Lnq",
+"phone_no": "7018915635",
+"bio": "",
+"status": "1",
+"created_at": "0000-00-00 00:00:00",
+"updated_at": null
+},
+{
+"id": 6,
+"role_id": 1,
+"name": null,
+"email": "sankhyan.amet@gmail.com",
+"password": "$2a$08$mtj2y3Xrkjyot1ZrUVRN6eOJd4VgCq1Tyn3jcILld6.V4A69bN456",
+"phone_no": "7018915635",
+"bio": null,
+"status": "1",
+"created_at": "Tue Dec 07 2021 18:06:02 GMT+0000 (Coordinated Universal Time)",
+"updated_at": null
+},
+
+name
+bio
+email
+phone
+status
+/--------------------
+
