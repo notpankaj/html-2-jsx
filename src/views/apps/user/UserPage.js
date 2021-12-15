@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { GET_USERS } from "../../../apiService";
+import Table from "./MuiTable";
 import UserLi from "./UserLi";
 
 function UserPage() {
@@ -19,7 +20,7 @@ function UserPage() {
     getUserData();
   }, []);
 
-  console.log(userList, ":LIST");
+  // console.log(userList, ":LIST");
   return (
     <>
       {/* <!-- BEGIN PAGE LEVEL STYLES --> */}
@@ -57,7 +58,7 @@ function UserPage() {
               </ol>
             </nav>
 
-            <div class="toggle-switch">
+            {/* <div class="toggle-switch">
               <label class="switch s-icons s-outline  s-outline-secondary">
                 <input type="checkbox" checked="" class="theme-shifter" />
                 <span class="slider round">
@@ -100,14 +101,14 @@ function UserPage() {
                   </svg>
                 </span>
               </label>
-            </div>
+            </div> */}
           </div>
 
           <div class="row layout-spacing layout-top-spacing" id="cancel-row">
             <div class="col-lg-12">
               <div class="widget-content searchable-container list">
                 <div class="row">
-                  <div class="col-xl-4 col-lg-5 col-md-5 col-sm-7 filtered-list-search layout-spacing align-self-center">
+                  {/* <div class="col-xl-4 col-lg-5 col-md-5 col-sm-7 filtered-list-search layout-spacing align-self-center">
                     <form class="form-inline my-2 my-lg-0">
                       <div class="">
                         <svg
@@ -133,10 +134,10 @@ function UserPage() {
                         />
                       </div>
                     </form>
-                  </div>
+                  </div> */}
 
                   <div class="col-xl-8 col-lg-7 col-md-7 col-sm-5 text-sm-right text-center layout-spacing align-self-center">
-                    <div class="d-flex justify-content-sm-end justify-content-center">
+                    {/* <div class="d-flex justify-content-sm-end justify-content-center">
                       <svg
                         id="btn-add-contact"
                         xmlns="http://www.w3.org/2000/svg"
@@ -194,10 +195,10 @@ function UserPage() {
                           <rect x="3" y="14" width="7" height="7"></rect>
                         </svg>
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* <!-- Modal --> */}
-                    <div
+                    {/* <div
                       class="modal fade"
                       id="addContactModal"
                       tabindex="-1"
@@ -304,13 +305,13 @@ function UserPage() {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
 
                 <div class="searchable-items list">
                   <div class="items items-header-section">
-                    <div class="item-content">
+                    {/* <div class="item-content">
                       <div class="">
                         <div class="n-chk align-self-center text-center">
                           <label class="new-control new-checkbox checkbox-primary">
@@ -362,14 +363,15 @@ function UserPage() {
                           <line x1="14" y1="11" x2="14" y2="17"></line>
                         </svg>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   {/*  ------------ item start--------------- */}
-
+                  {/* 
                   {userList &&
                     userList.map((user) => (
                       <UserLi key={user.id} user={user} />
-                    ))}
+                    ))} */}
+                  <Table />
 
                   {/*  ------------ item end--------------- */}
                   {/* <div class="items">

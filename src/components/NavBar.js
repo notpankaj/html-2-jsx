@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react/cjs/react.development";
 import { AuthContext } from "../App";
 function NavBar() {
   const [userTabVisible, setUserTabVisible] = useState(false);
 
-  const { auth } = useContext(AuthContext);
+  const { auth, setAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (auth?.role_id === 1) {
+    if (auth?.role_id === 0) {
       setUserTabVisible(true);
     }
   }, []);
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    setAuth(null);
+    localStorage.removeItem("auth");
+    navigate("/auth_login");
+  };
 
   return (
     <>
@@ -1621,7 +1629,7 @@ function NavBar() {
                   </a>
                 </div>
                 <div class="dropdown-item">
-                  <a href="auth_login.html">
+                  <a href="#">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -1633,12 +1641,13 @@ function NavBar() {
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       class="feather feather-log-out"
+                      onClick={handleLogout}
                     >
                       <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                       <polyline points="16 17 21 12 16 7"></polyline>
                       <line x1="21" y1="12" x2="9" y2="12"></line>
                     </svg>
-                    <span>Log Out</span>
+                    <span onClick={handleLogout}>Log Out</span>
                   </a>
                 </div>
               </div>

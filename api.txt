@@ -77,3 +77,12 @@ phone
 status
 /--------------------
 
+bio: ""
+created_at: "0000-00-00 00:00:00"
+email: "admin@imonetize.com"
+id: 1
+name: ""
+password: "$2a$08$NvkVO2u/GZ8zi.kKsGvEKO8lZLLgAjPJpsCJa1uNg9wYPvSAK6Lnq"
+phone_no: "7018915635"
+role_id: 0
+status: "1"
