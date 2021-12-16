@@ -13,6 +13,7 @@ import UserPage from "./views/apps/user/UserPage";
 import Login2 from "./views/auth/Login2";
 import Register2 from "./views/auth/Register2";
 import AdminRoutes from "./AdminRoutes";
+import Test from "./views/apps/Test";
 
 export const AuthContext = React.createContext();
 function App() {
@@ -60,6 +61,7 @@ function App() {
                   path="/user_account_setting"
                   element={<UserAccountSetting />}
                 />
+                <Route path="/test" element={<Test />} />
               </Routes>
               <AdminRoutes />
             </Dashboard>

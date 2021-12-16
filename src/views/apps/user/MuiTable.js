@@ -27,6 +27,7 @@ import DashboardAccessForm from "./DashboardAccessForm";
 import { Refresh } from "@mui/icons-material";
 
 import CircularProgress from "@mui/material/CircularProgress";
+import { Avatar } from "@mui/material";
 
 function createData(name, calories, fat, carbs, protein) {
   return {
@@ -132,6 +133,12 @@ function EnhancedTableHead(props) {
 
   const headCellsX = [
     {
+      id: "image",
+      numeric: false,
+      disablePadding: false,
+      label: "Image",
+    },
+    {
       id: "name",
       numeric: false,
       disablePadding: false,
@@ -147,7 +154,7 @@ function EnhancedTableHead(props) {
       id: "db_access",
       numeric: true,
       disablePadding: true,
-      label: "DB access",
+      label: "Status",
     },
     {
       id: "phone",
@@ -155,19 +162,19 @@ function EnhancedTableHead(props) {
       disablePadding: false,
       label: "Phone",
     },
-    // {
-    //   id: "action",
-    //   numeric: true,
-    //   disablePadding: false,
-    //   label: "action",
-    // },
+    {
+      id: "action",
+      numeric: true,
+      disablePadding: false,
+      label: "Action",
+    },
   ];
 
   return (
     <TableHead>
       <TableRow>
         <TableCell padding="checkbox">
-          {/* <Checkbox
+          <Checkbox
             color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
@@ -175,7 +182,7 @@ function EnhancedTableHead(props) {
             inputProps={{
               "aria-label": "select all desserts",
             }}
-          /> */}
+          />
         </TableCell>
 
         {headCellsX.map((headCell) => (
@@ -303,7 +310,7 @@ export default function EnhancedTable() {
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(8);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -418,19 +425,22 @@ export default function EnhancedTable() {
                             selected={isItemSelected}
                           >
                             <TableCell padding="checkbox">
-                              {/* <Checkbox
-                            color="primary"
-                            checked={isItemSelected}
-                            inputProps={{
-                              "aria-labelledby": labelId,
-                            }}
-                          /> */}
+                              <Checkbox
+                                color="primary"
+                                checked={isItemSelected}
+                                inputProps={{
+                                  "aria-labelledby": labelId,
+                                }}
+                              />
+                            </TableCell>
+                            <TableCell component="th" id={labelId} scope="row">
+                              <Avatar>{row?.name?.split("")[0] || "|"}</Avatar>
                             </TableCell>
                             <TableCell
                               component="th"
                               id={labelId}
                               scope="row"
-                              padding="none"
+                              padding="5px"
                             >
                               {row.name || "n/a"}
                             </TableCell>
@@ -442,10 +452,54 @@ export default function EnhancedTable() {
                               style={{ cursor: "pointer" }}
                               onClick={() => setDashboardAccessForm(row)}
                             >
-                              {parseFloat(row?.status) ? "Grant" : "Deny"}
+                              {parseFloat(row?.status) ? (
+                                <span
+                                  style={{
+                                    background: "#4361ee",
+                                    fontSize: "bold",
+                                    color: "#fff",
+                                    borderRadius: "5px",
+                                    padding: "5px 10px",
+                                    marginRight: "-20px",
+                                  }}
+                                >
+                                  Approved
+                                </span>
+                              ) : (
+                                <span
+                                  style={{
+                                    background: "#e2a03f",
+                                    fontSize: "bold",
+                                    color: "#fff",
+                                    borderRadius: "5px",
+                                    padding: "5px 10px",
+                                    marginRight: "-20px",
+                                  }}
+                                >
+                                  Pending
+                                </span>
+                              )}
                             </TableCell>
                             <TableCell align="right">
                               {row.phone_no || "n/a"}
+                            </TableCell>
+                            <TableCell align="right">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="feather feather-x-circle table-cancel"
+                              >
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="15" y1="9" x2="9" y2="15"></line>
+                                <line x1="9" y1="9" x2="15" y2="15"></line>
+                              </svg>
                             </TableCell>
                           </TableRow>
                         );
