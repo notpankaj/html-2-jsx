@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react/cjs/react.development";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import { AuthContext } from "../App";
+import ReportGmailerrorredIcon from "@mui/icons-material/ReportGmailerrorred";
+import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 function NavBar() {
   const [userTabVisible, setUserTabVisible] = useState(false);
 
@@ -53,7 +57,7 @@ function NavBar() {
             {/* <a class="navbar-brand" href="index.html"> */}
             <Link to="/" className="navbar-brand">
               <img alt="logo" src="assets/img/90x90.jpg" />
-              <span class="navbar-brand-name">CORK</span>
+              <span class="navbar-brand-name">Imonetize</span>
               {/* </a> */}
             </Link>
           </div>
@@ -78,13 +82,14 @@ function NavBar() {
                     {/* <a href="index.html" class="nav-link">
                       CORK
                     </a> */}
-                    <Link to="index.html" class="nav-link">
-                      CORK
+                    <Link to="/" class="nav-link">
+                      Imonetize
                     </Link>
                   </li>
                 </ul>
 
                 <ul class="list-unstyled menu-categories" id="topAccordion">
+                  {/* dashboard */}
                   <li class="menu single-menu active">
                     <a
                       href="#dashboard"
@@ -282,9 +287,172 @@ function NavBar() {
                   )}
                   {/* -------------------------- END APPS ------------------------------ */}
 
+                  {/* -------------------------- BEGIN Support ------------------------------ */}
+                  <li class="menu single-menu ">
+                    <a
+                      href="#profileManangement"
+                      data-toggle="collapse"
+                      aria-expanded="false"
+                      class="dropdown-toggle autodroprown"
+                    >
+                      <div class="">
+                        <PermIdentityIcon />
+
+                        <span> Profile Management</span>
+                      </div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-chevron-down"
+                      >
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </a>
+                  </li>
+                  {/* -------------------------- BEGIN Support ------------------------------ */}
+
+                  {/* -------------------------- BEGIN Support ------------------------------ */}
+                  <li class="menu single-menu ">
+                    <a
+                      href="#support"
+                      data-toggle="collapse"
+                      aria-expanded="false"
+                      class="dropdown-toggle autodroprown"
+                    >
+                      <div class="">
+                        <SupportAgentIcon />
+                        <span>Support</span>
+                      </div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-chevron-down"
+                      >
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </a>
+                    <ul
+                      class="collapse submenu list-unstyled animated fadeInUp"
+                      id="support"
+                      data-parent="#topAccordion"
+                    >
+                      <li class="active">
+                        {/* <a href="index.html"> Sales </a> */}
+                        <Link to="/comming_soon"> Generate Ticket </Link>
+                      </li>
+                      <li>
+                        {/* <a href="index2.html"> Analytics </a> */}
+                        <Link to="/comming_soon"> Social Support </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  {/* -------------------------- BEGIN Support ------------------------------ */}
+
+                  {/* -------------------------- BEGIN Performance Report ------------------------------ */}
+                  <li class="menu single-menu ">
+                    <a
+                      href="#performanceReport"
+                      data-toggle="collapse"
+                      aria-expanded="false"
+                      class="dropdown-toggle autodroprown"
+                    >
+                      <div class="">
+                        <ReportGmailerrorredIcon />
+                        <span>Performance Report</span>
+                      </div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-chevron-down"
+                      >
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </a>
+                    <ul
+                      class="collapse submenu list-unstyled animated fadeInUp"
+                      id="performanceReport"
+                      data-parent="#topAccordion"
+                    >
+                      <li class="active">
+                        {/* <a href="index.html"> Sales </a> */}
+                        <Link to="/comming_soon"> Gsheet </Link>
+                      </li>
+                      <li>
+                        {/* <a href="index2.html"> Analytics </a> */}
+                        <Link to="/comming_soon"> Add Templates </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  {/* -------------------------- BEGIN Performance Report ------------------------------ */}
+
+                  {/* -------------------------- BEGIN Sales ------------------------------ */}
+                  <li class="menu single-menu ">
+                    <a
+                      href="#sales"
+                      data-toggle="collapse"
+                      aria-expanded="sales"
+                      class="dropdown-toggle autodroprown"
+                    >
+                      <div class="">
+                        <ShoppingBagOutlinedIcon />
+                        <span>Sales</span>
+                      </div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-chevron-down"
+                      >
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </a>
+                    <ul
+                      class="collapse submenu list-unstyled animated fadeInUp"
+                      id="sales"
+                      data-parent="#topAccordion"
+                    >
+                      <li class="active">
+                        {/* <a href="index.html"> Sales </a> */}
+                        <Link to="/comming_soon"> Add Entries </Link>
+                      </li>
+                      <li>
+                        {/* <a href="index2.html"> Analytics </a> */}
+                        <Link to="/comming_soon"> Lists </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  {/* -------------------------- BEGIN Sales ------------------------------ */}
+
                   {/* -------------------------- BEGIN Components ------------------------------ */}
 
-                  <li class="menu single-menu">
+                  {/* <li class="menu single-menu">
                     <a
                       href="#components"
                       data-toggle="collapse"
@@ -468,11 +636,11 @@ function NavBar() {
                         <a href="component_lightbox.html"> Lightbox </a>
                       </li>
                     </ul>
-                  </li>
+                  </li> */}
 
                   {/* -------------------------- END Components ------------------------------ */}
                   {/* -------------------------- BEGIN Tables ------------------------------ */}
-                  <li class="menu single-menu">
+                  {/* <li class="menu single-menu">
                     <a
                       href="#tables"
                       data-toggle="collapse"
@@ -609,11 +777,11 @@ function NavBar() {
                         </ul>
                       </li>
                     </ul>
-                  </li>
+                  </li> */}
                   {/* -------------------------- END Tables ------------------------------ */}
                   {/* -------------------------- BEGIN Forms ------------------------------ */}
 
-                  <li class="menu single-menu">
+                  {/* <li class="menu single-menu">
                     <a
                       href="#forms"
                       data-toggle="collapse"
@@ -727,12 +895,12 @@ function NavBar() {
                         <a href="form_typeahead.html"> Typeahead </a>
                       </li>
                     </ul>
-                  </li>
+                  </li> */}
                   {/* -------------------------- END Forms ------------------------------ */}
 
                   {/* -------------------------- BEGIN MORE ------------------------------ */}
 
-                  <li class="menu single-menu menu-extras">
+                  {/* <li class="menu single-menu menu-extras">
                     <a
                       href="#more"
                       data-toggle="collapse"
@@ -829,15 +997,12 @@ function NavBar() {
                             </a>
                           </li>
                           <li>
-                            {/* <a href="user_profile.html"> Profile </a> */}
                             <Link to="/user_profile"> Profile </Link>
                           </li>
                           <li>
-                            {/* <a href="user_account_setting.html"> */}
                             <Link to="/user_account_setting">
                               Account Settings
                             </Link>
-                            {/* </a> */}
                           </li>
                           <li class="sub-sub-submenu-list">
                             <a
@@ -1131,7 +1296,7 @@ function NavBar() {
                         </a>
                       </li>
                     </ul>
-                  </li>
+                  </li> */}
                   {/* -------------------------- BEGIN MORE ------------------------------ */}
                 </ul>
               </nav>
@@ -1554,13 +1719,12 @@ function NavBar() {
                 <div class="user-profile-section">
                   <div class="media mx-auto">
                     <div class="media-body">
-                      <h5>Shaun Park</h5>
-                      <p>Project Leader</p>
+                      <h5>{auth?.name || "No-Name"}</h5>
+                      <p>Admin</p>
                     </div>
                   </div>
                 </div>
                 <div class="dropdown-item">
-                  {/* <a href="user_profile.html"> */}
                   <Link to="/user_profile">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1578,56 +1742,9 @@ function NavBar() {
                       <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                     <span>Profile</span>
-                    {/* </a> */}
                   </Link>
                 </div>
-                <div class="dropdown-item">
-                  <a href="apps_mailbox.html">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="feather feather-inbox"
-                    >
-                      <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
-                      <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
-                    </svg>
-                    <span>Inbox</span>
-                  </a>
-                </div>
-                <div class="dropdown-item">
-                  <a href="auth_lockscreen.html">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="feather feather-lock"
-                    >
-                      <rect
-                        x="3"
-                        y="11"
-                        width="18"
-                        height="11"
-                        rx="2"
-                        ry="2"
-                      ></rect>
-                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                    </svg>
-                    <span>Lock Screen</span>
-                  </a>
-                </div>
+
                 <div class="dropdown-item">
                   <a href="#">
                     <svg

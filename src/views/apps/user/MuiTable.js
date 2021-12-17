@@ -133,16 +133,16 @@ function EnhancedTableHead(props) {
 
   const headCellsX = [
     {
-      id: "image",
-      numeric: false,
-      disablePadding: false,
-      label: "Image",
-    },
-    {
       id: "name",
       numeric: false,
       disablePadding: false,
       label: "Name",
+    },
+    {
+      id: "image",
+      numeric: false,
+      disablePadding: false,
+      label: "Image",
     },
     {
       id: "email",
@@ -173,7 +173,7 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox">
+        {/* <TableCell padding="checkbox">
           <Checkbox
             color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
@@ -183,7 +183,7 @@ function EnhancedTableHead(props) {
               "aria-label": "select all desserts",
             }}
           />
-        </TableCell>
+        </TableCell> */}
 
         {headCellsX.map((headCell) => (
           <TableCell
@@ -198,7 +198,7 @@ function EnhancedTableHead(props) {
               direction={orderBy === headCell.id ? order : "asc"}
               onClick={createSortHandler(headCell.id)}
             >
-              {headCell.label}
+              <strong> {headCell.label}</strong>
               {orderBy === headCell.id ? (
                 <Box component="span" sx={visuallyHidden}>
                   {order === "desc" ? "sorted descending" : "sorted ascending"}
@@ -424,7 +424,7 @@ export default function EnhancedTable() {
                             key={row.name}
                             selected={isItemSelected}
                           >
-                            <TableCell padding="checkbox">
+                            {/* <TableCell padding="checkbox">
                               <Checkbox
                                 color="primary"
                                 checked={isItemSelected}
@@ -432,10 +432,7 @@ export default function EnhancedTable() {
                                   "aria-labelledby": labelId,
                                 }}
                               />
-                            </TableCell>
-                            <TableCell component="th" id={labelId} scope="row">
-                              <Avatar>{row?.name?.split("")[0] || "|"}</Avatar>
-                            </TableCell>
+                            </TableCell> */}
                             <TableCell
                               component="th"
                               id={labelId}
@@ -443,6 +440,9 @@ export default function EnhancedTable() {
                               padding="5px"
                             >
                               {row.name || "n/a"}
+                            </TableCell>
+                            <TableCell component="th" id={labelId} scope="row">
+                              <Avatar>{row?.name?.split("")[0] || "|"}</Avatar>
                             </TableCell>
                             <TableCell align="right">
                               {row.email || "n/a"}

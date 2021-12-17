@@ -13,7 +13,7 @@ import UserPage from "./views/apps/user/UserPage";
 import Login2 from "./views/auth/Login2";
 import Register2 from "./views/auth/Register2";
 import AdminRoutes from "./AdminRoutes";
-import Test from "./views/apps/Test";
+import Error503 from "./components/errors/Error503";
 
 export const AuthContext = React.createContext();
 function App() {
@@ -41,7 +41,6 @@ function App() {
         {!auth ? (
           <Routes>
             <Route path="/*" element={<Navigate replace to="/auth_login" />} />
-            {/* <Route path="/auth_login" element={<Login />} /> */}
             <Route path="/auth_login" element={<Login2 />} />
             <Route path="/auth_register" element={<Register2 />} />
           </Routes>
@@ -61,8 +60,9 @@ function App() {
                   path="/user_account_setting"
                   element={<UserAccountSetting />}
                 />
-                <Route path="/test" element={<Test />} />
+                <Route path="/comming_soon" element={<Error503 />} />
               </Routes>
+
               <AdminRoutes />
             </Dashboard>
           </>

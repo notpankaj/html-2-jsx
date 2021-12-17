@@ -35,7 +35,7 @@ function DashboardAccessForm({
     setRefresh((state) => !state);
     setTimeout(() => {
       handleClose();
-    }, 3000);
+    }, 1000);
   };
 
   return (
@@ -48,9 +48,7 @@ function DashboardAccessForm({
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">
-            {"Handle Dashboard Access"}
-          </DialogTitle>
+          <DialogTitle id="alert-dialog-title">{"Are you sure?"}</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
               <div
@@ -59,17 +57,15 @@ function DashboardAccessForm({
                   position: "relative",
                 }}
               >
-                <strong>User's Email: {dashboardAccessForm?.email}</strong>{" "}
                 <br />
-                <strong>Current Access Status </strong>{" "}
-                {parseFloat(dashboardAccessForm?.status) ? "Grant" : "Deny"}
-                <br />
-                <br />
-                <strong>Agree</strong>: Allow this user to access dashboard.
-                <br />
-                <strong>Disagree</strong>: Stop this user to access dashboard.{" "}
-                <br />
-                <strong>cancel</strong>: click outside the box to close.
+                <strong>Email: {dashboardAccessForm?.email}</strong> <br />
+                <span>
+                  {`You are going to ${
+                    !parseFloat(dashboardAccessForm?.status)
+                      ? "activate"
+                      : "deactivate"
+                  } this user! `}
+                </span>
                 {loading && (
                   <CircularProgress
                     style={{
@@ -84,7 +80,9 @@ function DashboardAccessForm({
           </DialogContent>
           <DialogActions>
             <Button onClick={handleSubmit} style={{ fontWeight: "bold" }}>
-              {!parseFloat(dashboardAccessForm?.status) ? "Grant" : "Deny"}{" "}
+              {!parseFloat(dashboardAccessForm?.status)
+                ? "Activate"
+                : "Deactivate"}
             </Button>
             <Button onClick={handleClose} autoFocus>
               close

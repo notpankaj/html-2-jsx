@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../App";
 
 function UserProfile() {
+  const { auth } = useContext(AuthContext);
+
   return (
     <>
       {/* <!--  BEGIN CUSTOM STYLE FILE  --> */}
@@ -31,51 +35,6 @@ function UserProfile() {
                 </li>
               </ol>
             </nav>
-
-            <div class="toggle-switch">
-              <label class="switch s-icons s-outline  s-outline-secondary">
-                <input type="checkbox" checked="" class="theme-shifter" />
-                <span class="slider round">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="feather feather-sun"
-                  >
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                  </svg>
-
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="feather feather-moon"
-                  >
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                  </svg>
-                </span>
-              </label>
-            </div>
           </div>
 
           <div class="row layout-spacing">
@@ -110,7 +69,7 @@ function UserProfile() {
                   </div>
                   <div class="text-center user-info">
                     <img src="assets/img/90x90.jpg" alt="avatar" />
-                    <p class="">Jimmy Turner</p>
+                    <p class="">{auth?.name || "No-Name"}</p>
                   </div>
                   <div class="user-info-list">
                     <div class="">
@@ -198,7 +157,7 @@ function UserProfile() {
                               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                               <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
-                            Jimmy@gmail.com
+                            {auth?.email || "undefined"}
                           </a>
                         </li>
                         <li class="contacts-block__item">
@@ -216,7 +175,7 @@ function UserProfile() {
                           >
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                           </svg>
-                          +1 (530) 555-12121
+                          {auth?.phone ? `+91 ${auth?.phone}` : "undefined"}
                         </li>
                         <li class="contacts-block__item">
                           <ul class="list-inline">
@@ -289,44 +248,6 @@ function UserProfile() {
                 </div>
               </div>
 
-              <div class="education layout-spacing ">
-                <div class="widget-content widget-content-area">
-                  <h3 class="">Education</h3>
-                  <div class="timeline-alter">
-                    <div class="item-timeline">
-                      <div class="t-meta-date">
-                        <p class="">04 Mar 2009</p>
-                      </div>
-                      <div class="t-dot"></div>
-                      <div class="t-text">
-                        <p>Royal Collage of Art</p>
-                        <p>Designer Illustrator</p>
-                      </div>
-                    </div>
-                    <div class="item-timeline">
-                      <div class="t-meta-date">
-                        <p class="">25 Apr 2014</p>
-                      </div>
-                      <div class="t-dot"></div>
-                      <div class="t-text">
-                        <p>Massachusetts Institute of Technology (MIT)</p>
-                        <p>Designer Illustrator</p>
-                      </div>
-                    </div>
-                    <div class="item-timeline">
-                      <div class="t-meta-date">
-                        <p class="">04 Apr 2018</p>
-                      </div>
-                      <div class="t-dot"></div>
-                      <div class="t-text">
-                        <p>School of Art Institute of Chicago (SAIC)</p>
-                        <p>Designer Illustrator</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               <div class="work-experience layout-spacing ">
                 <div class="widget-content widget-content-area">
                   <h3 class="">Work Experience</h3>
@@ -370,80 +291,6 @@ function UserProfile() {
             </div>
 
             <div class="col-xl-8 col-lg-6 col-md-7 col-sm-12 layout-top-spacing">
-              <div class="skills layout-spacing ">
-                <div class="widget-content widget-content-area">
-                  <h3 class="">Skills</h3>
-                  <div class="progress br-30">
-                    <div
-                      class="progress-bar bg-primary"
-                      role="progressbar"
-                      //   style="width: 25%"
-                      style={{
-                        width: "25%",
-                      }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      <div class="progress-title">
-                        <span>PHP</span> <span>25%</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="progress br-30">
-                    <div
-                      class="progress-bar bg-primary"
-                      role="progressbar"
-                      //   style="width: 50%"
-                      style={{
-                        width: "50%",
-                      }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      <div class="progress-title">
-                        <span>Wordpress</span> <span>50%</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="progress br-30">
-                    <div
-                      class="progress-bar bg-primary"
-                      role="progressbar"
-                      //   style="width: 70%"
-                      style={{
-                        width: "70%",
-                      }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      <div class="progress-title">
-                        <span>Javascript</span> <span>70%</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="progress br-30">
-                    <div
-                      class="progress-bar bg-primary"
-                      role="progressbar"
-                      //   style="width: 60%"
-                      style={{
-                        width: "60%",
-                      }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      <div class="progress-title">
-                        <span>jQuery</span> <span>60%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               <div class="bio layout-spacing ">
                 <div class="widget-content widget-content-area">
                   <h3 class="">Bio</h3>
